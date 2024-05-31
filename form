@@ -1,0 +1,16 @@
+function createForm() {
+  var form = FormApp.openById('YOUR_FORM_ID'); // Replace with your form ID
+  var item = form.addMultipleChoiceItem();
+  item.setTitle('Select your options')
+      .setChoiceValues(['Option 1', 'Option 2', 'Option 3', 'Option 4'])
+      .showOtherOption(true);
+  
+  form.addPageBreakItem().setTitle('Other Section'); // To simulate a form section
+}
+
+function onOpen() {
+  var ui = FormApp.getUi();
+  ui.createMenu('Custom Script')
+    .addItem('Create Custom Dropdown', 'createForm')
+    .addToUi();
+}
