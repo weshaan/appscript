@@ -1,0 +1,15 @@
+function onOpen() {
+  FormApp.getUi().createMenu('Custom Interface')
+                  .addItem('Open Sidebar', 'openSidebar')
+                  .addToUi();
+}
+
+function openSidebar() {
+  var html = HtmlService.createHtmlOutputFromFile('customInterface')
+                        .setTitle('Custom Interface');
+  FormApp.getUi().showSidebar(html);
+}
+
+function processForm() {
+  Logger.log('Form submitted!');
+}
